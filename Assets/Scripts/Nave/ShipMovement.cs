@@ -7,7 +7,7 @@ public class ShipMovement : MonoBehaviour
 {
     [Range(1.0f, 400.0f)]
     [Tooltip("Maximum speed of player ship.")]
-    [SerializeField] private float maxSpeed = 200.0f;
+    [SerializeField] private float maxSpeed = 100.0f;
 
     [Range(1.0f, 200.0f)]
     [Tooltip("How fast the ship's position is changed through time.\nThe less this value is, the smoother (or heavier) movement feels.")]
