@@ -7,7 +7,6 @@
  */
 
 using UnityEngine;
-using System.Collections;
 
 /**
  * Sample for reading using polling by yourself, and writing too.

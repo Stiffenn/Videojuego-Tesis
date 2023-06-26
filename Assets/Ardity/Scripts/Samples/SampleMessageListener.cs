@@ -7,7 +7,6 @@
  */
 
 using UnityEngine;
-using System.Collections;
 
 /**
  * When creating your message listeners you need to implement these two methods:
