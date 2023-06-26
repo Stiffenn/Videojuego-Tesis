@@ -1,65 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ControlNave : MonoBehaviour
 {
-    public float VelocidadAdelante = 1f;
-    private float _velocidadActual;
-
-    [SerializeField]
-    private Rigidbody _rb;
-
-    public float velocidadX = 25f, velocidadY = 7.5f;
-    private float activoVelocidadX, activoVelocidadY;
-
-    public float lookRateSpeed = 90f;
-    private Vector2 screenCenter, mouseDistance;
-
+    float movimiento;
     // Start is called before the first frame update
-    void Start()
+    void OnMessageArrived(string msg)
     {
-        screenCenter.x = Screen.width * .5f;
-        screenCenter.y = Screen.height * .5f;
+        Debug.Log("Message arrived: " + msg);
+        var array = msg.Split("|");
+        movimiento = float.Parse(array[0]);
+
+        if (movimiento > 550)
+        {
+            transform.position += new Vector3(1f, 0f, 0);
+        }
+        if (movimiento < 550)
+        {
+            transform.position -= new Vector3(1f, 0f, 0);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Invoked when a connect/disconnect event occurs. The parameter 'success'
+    // will be 'true' upon connection, and 'false' upon disconnection or
+    // failure to connect.
+    void OnConnectionEvent(bool success)
     {
-        MouseMovement();
-
-        //mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f) ;
-
-        activoVelocidadX = Input.GetAxisRaw("Vertical") * velocidadX;
-        activoVelocidadY = Input.GetAxisRaw("Horizontal") * velocidadY;
-
-        //transform.position += transform.forward * activoVelocidadX * Time.deltaTime;
-        transform.position += transform.right * activoVelocidadY * Time.deltaTime;
-    }
-
-    void FixedUpdate()
-    {
-        ImpulsarNave();
-
-    }
-
-    void ImpulsarNave()
-    {
-        _rb.AddForce(transform.forward * Input.GetAxisRaw("Vertical") * VelocidadAdelante);
-/*
-        float input = Mathf.Min(Input.GetAxisRaw("Vertical") * VelocidadAdelante * Time.deltaTime, VelocidadAdelanteMax);
-
-        transform.position += transform.forward * input;
-        */
-    }
-
-    void MouseMovement()
-    {
-        Vector2 lookInput = Input.mousePosition;
-
-        mouseDistance.x = (lookInput.x - screenCenter.x) / screenCenter.y;
-        mouseDistance.y = (lookInput.y - screenCenter.x) / screenCenter.y;
-
-        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime, 0f, Space.Self);
+        if (success)
+            Debug.Log("Connection established");
+        else
+            Debug.Log("Connection attempt failed or disconnection detected");
     }
 }
