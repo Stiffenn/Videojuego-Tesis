@@ -119,5 +119,25 @@ PrefabInstance:
       propertyPath: _colors.Array.data[3].r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[2]
+      value: Azurea
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[3]
+      value: Thetys
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[4]
+      value: Nauterra
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[5]
+      value: Azurion
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}

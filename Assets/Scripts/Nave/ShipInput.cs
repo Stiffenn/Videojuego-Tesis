@@ -32,6 +32,7 @@ public class ShipInput : MonoBehaviour
     {
         HandleKeyboardInput();
         ClampRotation();
+        RestartKey();
     }
 
     void Awake()

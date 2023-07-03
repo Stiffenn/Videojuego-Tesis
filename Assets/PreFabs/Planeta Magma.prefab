@@ -107,6 +107,26 @@ PrefabInstance:
       propertyPath: _colors.Array.data[3].a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[2]
+      value: Pyroxis
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[3]
+      value: Blazevale
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[4]
+      value: Volcanus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: _randomNames.Array.data[5]
+      value: Scorchalon
+      objectReference: {fileID: 0}
     - target: {fileID: 4023814733065164999, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
