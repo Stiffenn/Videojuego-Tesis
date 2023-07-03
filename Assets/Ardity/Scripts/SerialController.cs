@@ -8,6 +8,8 @@
 
 using UnityEngine;
 using System.Threading;
+using System.IO;
+using System;
 
 /**
  * This class allows a Unity program to continually check for messages from a
@@ -26,7 +28,7 @@ using System.Threading;
 public class SerialController : MonoBehaviour
 {
     [Tooltip("Port name with which the SerialPort object will be created.")]
-    public string portName = "COM3";
+    public string portName = "COM4";
 
     [Tooltip("Baud rate that the serial device is using to transmit data.")]
     public int baudRate = 9600;
@@ -55,6 +57,22 @@ public class SerialController : MonoBehaviour
     protected Thread thread;
     protected SerialThreadLines serialThread;
 
+    private string _port;
+
+    private static readonly string FilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tesis_Config.txt");
+
+    private void Awake()
+    {
+#if UNITY_EDITOR
+        _port = portName;
+#else
+        if (!File.Exists(FilePath))
+            File.WriteAllText(FilePath, "COM4");
+
+        _port = File.ReadAllText(FilePath);
+#endif
+    }
+
 
     // ------------------------------------------------------------------------
     // Invoked whenever the SerialController gameobject is activated.
@@ -63,7 +81,7 @@ public class SerialController : MonoBehaviour
     // ------------------------------------------------------------------------
     void OnEnable()
     {
-        serialThread = new SerialThreadLines(portName, 
+        serialThread = new SerialThreadLines(_port, 
                                              baudRate, 
                                              reconnectionDelay,
                                              maxUnreadMessages);
