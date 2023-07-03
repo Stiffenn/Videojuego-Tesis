@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 /// <summary>
 /// Transform-based movement by Z world axis.
@@ -8,11 +9,23 @@ public class ShipMovement : MonoBehaviour
 {
     private Dictionary<int, float> _speed = new Dictionary<int, float>()
     {
+        [0] = 0f,
         [1] = 1f,
         [2] = 1.25f,
-        [3] = 1.5f,
-        [4] = 1.75f,
-        [5] = 2f
+        [3] = 2f,
+        [4] = 3f,
+        [5] = 4f,
+        [6] = 4.25f,
+    };
+    private Dictionary<int, float> _maxSpeed = new Dictionary<int, float>()
+    {
+        [0] = 0f,
+        [1] = 50f,
+        [2] = 100f,
+        [3] = 150f,
+        [4] = 200f,
+        [5] = 300f,
+        [6] = 350f,
     };
 
     [Range(1.0f, 400.0f)]
@@ -23,7 +36,7 @@ public class ShipMovement : MonoBehaviour
     [Tooltip("How fast the ship's position is changed through time.\nThe less this value is, the smoother (or heavier) movement feels.")]
     [SerializeField] private float deltaMovementSpeed = 25.0f;
 
-    [Range(1.0f, 2.0f)]
+    [Range(1.0f, 30)]
     [Tooltip("How fast the ship should lose its speed when using brake (S button).\nValue of 1 means it's the same as acceleration.")]
     [SerializeField] private float brakeForce = 1.5f;
 
@@ -35,6 +48,7 @@ public class ShipMovement : MonoBehaviour
     private AnimationCurve _acceleratorCalculator;
 
     [SerializeField] private Ship ship;
+    [SerializeField] private TMP_Text _temp;
 
     private float currentSpeed = 0f;
 
@@ -42,6 +56,7 @@ public class ShipMovement : MonoBehaviour
 
     private Vector3 targetPos;
     private Vector3 smoothPos;
+    private Vector3 lastPosChecked;
 
     // Accessor for various game mechanics, such as collisions and speed displayer.
     public float CurrentSpeed
@@ -60,7 +75,16 @@ public class ShipMovement : MonoBehaviour
     
     private void Update()
     {
-        HandleMovement();
+        HandleMovement();//te odio esteban
+
+        if (_temp == null)
+            return;
+
+        if (lastPosChecked == null)
+            lastPosChecked = transform.position;
+
+        _temp.text = $"{Mathf.RoundToInt((transform.position - lastPosChecked).magnitude / Time.deltaTime):000}mps [{ship.ShipInput.NivelPotenciador}L]";
+        lastPosChecked = transform.position;
     }
 
     private void HandleMovement()
@@ -71,10 +95,12 @@ public class ShipMovement : MonoBehaviour
         // Moving ship by applying changes directly to its transform every frame. 
         thisTransform.position = smoothPos;
 
+        bool forceBrake = currentSpeed >= _maxSpeed[ship.ShipInput.NivelPotenciador];
+
         // Smoothly changing the apply value over time on key presses.
-        if (ship.ShipInput.WIsPressed)
-            currentSpeed += (deltaMovementSpeed * Time.deltaTime) /** (Speed(ship.ShipInput.NivelPotenciador))*/;//_acceleratorCalculator.Evaluate(ship.ShipInput.NivelPotenciador);
-        else if (ship.ShipInput.SIsPressed)
+        if (ship.ShipInput.WIsPressed && !forceBrake)
+            currentSpeed += (deltaMovementSpeed * Time.deltaTime) * Speed(ship.ShipInput.NivelPotenciador); /** (Speed(ship.ShipInput.NivelPotenciador))*///_acceleratorCalculator.Evaluate(ship.ShipInput.NivelPotenciador);
+        else if (ship.ShipInput.SIsPressed || forceBrake)
             currentSpeed -= (deltaMovementSpeed * brakeForce) * Time.deltaTime;
 
         // Mimic inertia force by passive speed decrease.

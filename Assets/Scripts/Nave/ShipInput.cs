@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +8,10 @@ public class ShipInput : MonoBehaviour
 {
     public static bool IsInputBlocked { get; set; }
 
-    public const float PotenciadorThreshold = 50;
+    public const float PotenciadorThreshold = 65;
     public const float DriftingThreshold = 50;
     private const float CenterValue = 500;
-    private const float DivideValue = 250;
+    private const float DivideValue = 80;
 
     // Mouse position relative to screen.
     public float Pitch { get; private set; }
@@ -66,7 +65,7 @@ public class ShipInput : MonoBehaviour
         QIsPressed = Input.GetKey(KeyCode.Q);
         EIsPressed = Input.GetKey(KeyCode.E);
 
-        NivelPotenciador = (int) Mathf.Min(_potenciometro / DivideValue, 1);
+        NivelPotenciador = (int) Mathf.Max(_potenciometro / DivideValue, 0);
     }
 
     private void RestartKey()
