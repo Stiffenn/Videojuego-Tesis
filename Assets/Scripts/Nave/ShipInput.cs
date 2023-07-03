@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This class deals with player input.
@@ -8,8 +9,8 @@ public class ShipInput : MonoBehaviour
 {
     public static bool IsInputBlocked { get; set; }
 
-    private const float PotenciadorThreshold = 50;
-    private const float DriftingThreshold = 50;
+    public const float PotenciadorThreshold = 50;
+    public const float DriftingThreshold = 50;
     private const float CenterValue = 500;
     private const float DivideValue = 250;
 
@@ -24,21 +25,13 @@ public class ShipInput : MonoBehaviour
     public bool EIsPressed { get; private set; }
     public int NivelPotenciador { get; private set; }
 
-    [SerializeField]
-    private bool _enableSimulator;
-
     private bool _isPressingPotenciador;
     private float _potenciometro;
 
     void Update()
     {
-        SetStickCommandsUsingMouse();
         HandleKeyboardInput();
-
-        if (!_enableSimulator)
-            return;
-
-
+        ClampRotation();
     }
 
     void Awake()
@@ -58,7 +51,7 @@ public class ShipInput : MonoBehaviour
     /// Huge thanks to brihernandez for source code of this method:
     /// https://github.com/brihernandez/ArcadeSpaceFlightExample/blob/master/Assets/ArcadeSpaceFlight/Code/Ship/ShipInput.cs
     /// </summary>
-    private void SetStickCommandsUsingMouse()
+    private void ClampRotation()
     {
         // Make sure the values don't exceed limits.
         Pitch = Mathf.Clamp(Pitch, -1.0f, 1.0f);
@@ -75,13 +68,21 @@ public class ShipInput : MonoBehaviour
         NivelPotenciador = (int) Mathf.Min(_potenciometro / DivideValue, 1);
     }
 
+    private void RestartKey()
+    {
+        if (!Input.GetKeyDown(KeyCode.R))
+            return;
+
+        SceneManager.LoadScene(0);
+    }
+
     private void OnCenterMove(float cameraX, float cameraY)
     {
-        Pitch = TranslateValue(cameraY);
+        Pitch = TranslateValue(cameraY, true);
         Yaw = TranslateValue(cameraX);
     }
 
-    private float TranslateValue(float value)
+    private float TranslateValue(float value, bool inverted = false)
     {
         float absoluteValue = Mathf.Abs(value);
 
@@ -92,6 +93,9 @@ public class ShipInput : MonoBehaviour
 
         float translatedValue = (absoluteValue / CenterValue);
         bool isPositive = value > 0;
+
+        if (inverted)
+            isPositive = !isPositive;
 
         return isPositive ? translatedValue : -translatedValue;
     }

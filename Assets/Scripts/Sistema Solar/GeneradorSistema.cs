@@ -1,6 +1,8 @@
 using UnityEngine;
 public class GeneradorSistema : MonoBehaviour
 {
+    public static Vector3 Center { get; private set; } = Vector3.zero;
+
     [SerializeField]
     private bool _randomizePlanetPosition;
 
@@ -20,7 +22,13 @@ public class GeneradorSistema : MonoBehaviour
     private float _altura = 100;
 
     [SerializeField]
-    private Planeta[] _planetaPrefabs;
+    private Planeta _planetaMagma;
+
+    [SerializeField]
+    private Planeta _planetaOceano;
+
+    [SerializeField]
+    private float _distanciaMagma;
 
     [SerializeField]
     private GameObject _estrellaPrefab;
@@ -36,30 +44,26 @@ public class GeneradorSistema : MonoBehaviour
     {
         Transform star = Instantiate(_estrellaPrefab).transform;
         float radius = star.localScale.x * 1.75f;
-        float angleIncrement = 360f / planetas;
         
         star.SetParent(transform);
-        star.position = Vector3.zero;
+        star.localPosition = Vector3.zero;
+
+        Center = star.position;
 
         for (int i = 0; i < planetas; i++)
         {
-            float angle = i * angleIncrement;
-            Transform planeta = Instantiate(_planetaPrefabs[Random.Range(0, _planetaPrefabs.Length)]).transform;
+            radius += Random.Range(_minDistance, _maxDistance);
 
-            radius += Random.Range(_minDistance, _maxDistance) + planeta.localScale.x;
-            Vector3 planetPos = CalculatePosition(angle, radius);//(new(RandomNegative(radius), 0, RandomNegative(radius)));
+            Transform planeta = Instantiate(radius <= _distanciaMagma ? _planetaMagma : _planetaOceano).transform;
 
-            //planeta.SetParent(transform);
-            planeta.position = planetPos;
+            radius += planeta.localScale.x;
+            Vector3 planetPos = new(RandomNegative(radius), 0, RandomNegative(radius));
+
+            planeta.SetParent(transform);
+            planeta.localPosition = planetPos;
+
+            planeta.RotateAround(Center, Vector3.up, Random.Range(0, 360));
         }
-    }
-
-    private Vector3 CalculatePosition(float angle, float distance)
-    {
-        float angleRadians = angle * Mathf.Deg2Rad;
-        float x = distance * Mathf.Cos(angleRadians);
-        float z = distance * Mathf.Sin(angleRadians);
-        return transform.position + new Vector3(x, 0, z);
     }
 
     private float RandomNegative(float value)

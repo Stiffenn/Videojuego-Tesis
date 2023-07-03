@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipScanner : MonoBehaviour
 {
@@ -13,6 +14,16 @@ public class ShipScanner : MonoBehaviour
 
     [SerializeField]
     private TMP_Text _text;
+
+    [SerializeField]
+    private float _chargeProgress = 1;
+
+    [SerializeField]
+    private float _scannerDuration = 5;
+
+    private Planeta _lastPlanet;
+    private float _scannerProgress;
+    private float _scannerTimer;
 
     private void Awake()
     {
@@ -34,12 +45,34 @@ public class ShipScanner : MonoBehaviour
         if (!Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, MaxRange, ScannerLayer))
             return;
 
-        string objName = hitInfo.collider.gameObject.name;
-        _text.text = $"{objName}";
+        if (!hitInfo.collider.TryGetComponent(out Planeta planet))
+            return;
+
+        if (_lastPlanet != planet)
+            _scannerProgress = 0;
+
+        _lastPlanet = planet;
+        _scannerProgress = Mathf.Clamp01(_scannerProgress + Time.deltaTime * _chargeProgress);
+
+        if(_scannerProgress >= 1)
+            _scannerTimer = Time.time + _scannerDuration;
     }
 
     private void Update()
     {
+#if UNITY_EDITOR
         Debug.DrawLine(transform.position, transform.position + transform.forward * MaxRange, Color.cyan, 0.1f);
+#endif
+        bool scanComplete = _scannerProgress >= 1;
+
+        if (scanComplete && _lastPlanet != null)
+        {
+            _text.text = $"{_lastPlanet.Name}";
+        }
+
+        if (scanComplete || _scannerTimer > Time.time)
+            return;
+
+        _text.text = $"{Mathf.RoundToInt(_scannerProgress * 100)}%";
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4023814733065164998}
   - component: {fileID: 4023814733065164997}
   - component: {fileID: 4023814733065164994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlanetaBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,11 +111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71179faa8ce1ab4a8747d150960bc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "_tama\xF1oMax": 600
+  "_tama\xF1oMax": 500
   "_tama\xF1oMin": 200
   "_tama\xF1oOffset": 1
+  _randomNames:
+  - Tierra
+  - Mercurio
+  - Saturno
+  - Needle
+  - Nicki Nicole
   _key: 
   _colors: []
+  _rotateSpeed: 0
 --- !u!114 &4023814733065164994
 MonoBehaviour:
   m_ObjectHideFlags: 0

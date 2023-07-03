@@ -47,10 +47,10 @@ MonoBehaviour:
   _randomizePlanetPosition: 1
   _planetasMin: 7
   _planetasMax: 7
-  _minDistance: 800
-  _maxDistance: 800
+  _minDistance: 400
+  _maxDistance: 600
   _altura: 100
-  _planetaPrefabs:
-  - {fileID: 622378793799487069, guid: cb9ec773fd6bce94982103f326c74a21, type: 3}
-  - {fileID: 1327728309484711330, guid: f0dd8fa081ff4ca4d8109b0b6b75fee1, type: 3}
+  _planetaMagma: {fileID: 622378793799487069, guid: cb9ec773fd6bce94982103f326c74a21, type: 3}
+  _planetaOceano: {fileID: 1327728309484711330, guid: f0dd8fa081ff4ca4d8109b0b6b75fee1, type: 3}
+  _distanciaMagma: 4000
   _estrellaPrefab: {fileID: 1448624038546059925, guid: d1fb84a2cf2d8d64e9813804c16c9bd0, type: 3}

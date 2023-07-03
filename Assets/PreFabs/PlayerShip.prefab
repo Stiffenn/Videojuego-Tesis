@@ -79,8 +79,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef9025adb246f244853ceaecfd2b04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxRange>k__BackingField: 1014
+  <MaxRange>k__BackingField: 1350
   _text: {fileID: 0}
+  _chargeProgress: 13
+  _scannerDuration: 8
 --- !u!114 &2215303195842179673
 MonoBehaviour:
   m_ObjectHideFlags: 0
