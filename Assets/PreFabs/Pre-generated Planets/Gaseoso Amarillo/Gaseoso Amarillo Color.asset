@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e6c8ca3ba8841e191076baacd2a9ab, type: 3}
+  m_Name: Gaseoso Amarillo Color
+  m_EditorClassIdentifier: 
+  planetMaterial: {fileID: 2100000, guid: da3fd9b930206d845b733e9b99e60a9d, type: 2}
+  biomeColourSettings:
+    biomes:
+    - gradient:
+        serializedVersion: 2
+        key0: {r: 0.7998382, g: 0.8980392, b: 0.23921569, a: 1}
+        key1: {r: 0.84911275, g: 0.93333334, b: 0.56078434, a: 1}
+        key2: {r: 0.7372549, g: 0.5372987, b: 0, a: 0}
+        key3: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key4: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key5: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key6: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key7: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        ctime0: 0
+        ctime1: 7903
+        ctime2: 55898
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 65535
+        ctime6: 65535
+        ctime7: 65535
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 2
+      tint: {r: 0.8383219, g: 0.8980392, b: 0, a: 0}
+      startHeight: 0.216
+      tintPercent: 0.237
+    noise:
+      filterType: 0
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 2
+        baseRoughness: 1
+        roughness: 2
+        persistence: 1.13
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0
+      ridgidNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0
+        weightMultiplier: 0.8
+    noiseOffset: 2
+    noiseStrength: 0.15
+    blendAmount: 0.242
+  oceanColour:
+    serializedVersion: 2
+    key0: {r: 1, g: 0.55879235, b: 0, a: 1}
+    key1: {r: 0.7647059, g: 0.6351234, b: 0, a: 1}
+    key2: {r: 0.9245283, g: 0.87742966, b: 0.25729796, a: 0}
+    key3: {r: 0.6190367, g: 0.6509804, b: 0, a: 0}
+    key4: {r: 0.024029896, g: 0.5660378, b: 0.37538785, a: 0}
+    key5: {r: 0.77624863, g: 0.11372549, b: 0.8392157, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 43947
+    ctime2: 53392
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2

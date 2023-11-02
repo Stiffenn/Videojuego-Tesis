@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planeta Oceano
       objectReference: {fileID: 0}
+    - target: {fileID: 4023814733065164996, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4023814733065164997, guid: df5e2765f5778cd4d983b752bb071ab8, type: 3}
       propertyPath: _key
       value: _ColorOceano

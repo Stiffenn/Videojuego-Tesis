@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using System;
+using System.Linq;
 
 /// <summary>
 /// Transform-based movement by Z world axis.
@@ -95,7 +97,7 @@ public class ShipMovement : MonoBehaviour
         // Moving ship by applying changes directly to its transform every frame. 
         thisTransform.position = smoothPos;
 
-        bool forceBrake = currentSpeed >= _maxSpeed[ship.ShipInput.NivelPotenciador];
+        bool forceBrake = currentSpeed >= GetMaxSpeed();
 
         // Smoothly changing the apply value over time on key presses.
         if (ship.ShipInput.WIsPressed && !forceBrake)
@@ -111,6 +113,14 @@ public class ShipMovement : MonoBehaviour
 
         // Setting speed limits.
         currentSpeed = Mathf.Clamp(currentSpeed, -maxSpeed / 6.0f, maxSpeed);
+    }
+
+    private float GetMaxSpeed()
+    {
+        if (!_maxSpeed.TryGetValue(ship.ShipInput.NivelPotenciador, out float result))
+            return _maxSpeed.Values.Last();
+
+        return result;
     }
 
     private float Speed(int val)
