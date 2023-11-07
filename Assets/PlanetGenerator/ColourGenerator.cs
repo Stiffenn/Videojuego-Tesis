@@ -5,12 +5,12 @@ using UnityEngine;
 public class ColourGenerator
 {
 
-    ColourSettings settings;
+    ColorSettings settings;
     Texture2D texture;
     const int textureResolution = 50;
     INoiseFilter biomeNoiseFilter;
 
-    public void UpdateSettings(ColourSettings settings)
+    public void UpdateSettings(ColorSettings settings)
     {
         this.settings = settings;
         if (texture == null || texture.height != settings.biomeColourSettings.biomes.Length)

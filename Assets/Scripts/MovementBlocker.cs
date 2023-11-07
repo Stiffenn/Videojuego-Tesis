@@ -15,16 +15,16 @@ public class MovementBlocker : MonoBehaviour
     /// Rango al que la nave tiene que estar para que éste componente la considere demasiado cerca.
     /// </summary>
     [field: SerializeField]
-    public float DetectionRange { get; set; } = 500;
+    public float DetectionRange { get; set; } = 1600;
 
     private Transform _savedTransform;
 
     /// <summary>
     /// Método utilizado para detectar si la nave está en rango de éste componente o no.
     /// </summary>
-    public bool IsInRange(Ship ship)
+    public bool IsInRange(Transform target)
     {
-        float distancia = Vector3.Distance(ship.transform.position, transform.position);
+        float distancia = Vector3.Distance(target.position, _savedTransform.position);
 
         // Si la distancia es mayor al rango de detección, no consideramos que la nave esté en rango.
         if(distancia > DetectionRange)

@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e6c8ca3ba8841e191076baacd2a9ab, type: 3}
+  m_Name: Rocoso Violeta Color
+  m_EditorClassIdentifier: 
+  planetMaterial: {fileID: 2100000, guid: f478614d23fed494e99c37a87fe3f2e7, type: 2}
+  biomeColourSettings:
+    biomes:
+    - gradient:
+        serializedVersion: 2
+        key0: {r: 0.15264823, g: 0, b: 0.2627451, a: 1}
+        key1: {r: 0.49178165, g: 0, b: 0.6226415, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
+        key3: {r: 1, g: 1, b: 1, a: 0}
+        key4: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key5: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key6: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key7: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        ctime0: 0
+        ctime1: 65535
+        ctime2: 65535
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 65535
+        ctime6: 65535
+        ctime7: 65535
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_NumColorKeys: 2
+        m_NumAlphaKeys: 2
+      tint: {r: 0.29677975, g: 0, b: 0.7254902, a: 1}
+      startHeight: 0.635
+      tintPercent: 0.285
+    - gradient:
+        serializedVersion: 2
+        key0: {r: 0.47058824, g: 0, b: 0.3778, a: 1}
+        key1: {r: 0.6039216, g: 0, b: 0.23607504, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
+        key3: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key4: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key5: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key6: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key7: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        ctime0: 3470
+        ctime1: 5012
+        ctime2: 65535
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 65535
+        ctime6: 65535
+        ctime7: 65535
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 2
+      tint: {r: 0.5722367, g: 0, b: 0.745283, a: 1}
+      startHeight: 1
+      tintPercent: 0.285
+    - gradient:
+        serializedVersion: 2
+        key0: {r: 0.47058824, g: 0, b: 0.3778, a: 1}
+        key1: {r: 0.9150943, g: 0, b: 0.34661192, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
+        key3: {r: 1, g: 1, b: 1, a: 0}
+        key4: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key5: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key6: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        key7: {r: 0.3207547, g: 0.14127098, b: 0, a: 0}
+        ctime0: 3470
+        ctime1: 5012
+        ctime2: 65535
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 65535
+        ctime6: 65535
+        ctime7: 65535
+        atime0: 0
+        atime1: 65535
+        atime2: 0
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_NumColorKeys: 3
+        m_NumAlphaKeys: 2
+      tint: {r: 0, g: 0.0061695063, b: 0.7254902, a: 1}
+      startHeight: 1
+      tintPercent: 0.22
+    noise:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 8
+        baseRoughness: 1
+        roughness: 2
+        persistence: 2.31
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 1
+      ridgidNoiseSettings:
+        strength: 1.64
+        numLayers: 8
+        baseRoughness: 2.41
+        roughness: 0.69
+        persistence: 2.56
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0.57
+        weightMultiplier: 0.64
+    noiseOffset: 0.8
+    noiseStrength: 0.1
+    blendAmount: 1
+  oceanColour:
+    serializedVersion: 2
+    key0: {r: 0.28121918, g: 0, b: 0.34901962, a: 1}
+    key1: {r: 0.7921569, g: 0, b: 0.7234746, a: 1}
+    key2: {r: 1, g: 0, b: 0.9132972, a: 0}
+    key3: {r: 1, g: 0.37177002, b: 0, a: 0}
+    key4: {r: 1, g: 0.37177002, b: 0, a: 0}
+    key5: {r: 1, g: 0.37177002, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 45296
+    ctime1: 62066
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2

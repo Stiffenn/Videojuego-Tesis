@@ -56,7 +56,7 @@ public class ShipRotation : MonoBehaviour
         foreach (MovementBlocker obstacle in MovementBlocker.Instances)
         {
             // Si no está a rango, ignorar.
-            if(!obstacle.IsInRange(ship))
+            if(!obstacle.IsInRange(thisTransform))
                 continue;
 
             // Si está a rango, comunicar que detectamos movimiento.

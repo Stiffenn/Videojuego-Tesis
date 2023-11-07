@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7417074301887804490}
   - component: {fileID: 7755712408162431997}
-  m_Layer: 0
+  - component: {fileID: 4632041282057633190}
+  m_Layer: 3
   m_Name: Planet Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 282185253468295129}
   m_LocalRotation: {x: -0, y: 0.7030944, z: -0, w: 0.7110966}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,6 +52,7 @@ MonoBehaviour:
   colourSettings: {fileID: 11400000, guid: 4d2914748ff1c4089acd77328cfcb02e, type: 2}
   shapeSettingsFoldout: 1
   colourSettingsFoldout: 1
+  _rotateSpeed: 0.1
   meshFilters:
   - {fileID: 0}
   - {fileID: 0}
@@ -58,3 +60,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &4632041282057633190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282185253468295129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4186ab0b6c47049b0fd41ceed664c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <DetectionRange>k__BackingField: 1200

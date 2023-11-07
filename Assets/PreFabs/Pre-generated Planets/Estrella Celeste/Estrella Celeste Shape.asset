@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48e7d87040ce4f66a07c75b885f4f80, type: 3}
+  m_Name: Estrella Celeste Shape
+  m_EditorClassIdentifier: 
+  planetRadius: 500
+  noiseLayers:
+  - enabled: 1
+    useFirstLayerAsMask: 1
+    noiseSettings:
+      filterType: 0
+      simpleNoiseSettings:
+        strength: 0.03
+        numLayers: 8
+        baseRoughness: 4
+        roughness: 10
+        persistence: 0.23
+        centre: {x: 2.18, y: 4.65, z: 2.93}
+        minValue: 0.9
+      ridgidNoiseSettings:
+        strength: 0.03
+        numLayers: 8
+        baseRoughness: 1
+        roughness: 1
+        persistence: 1
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 1
+        weightMultiplier: 1
+  - enabled: 1
+    useFirstLayerAsMask: 1
+    noiseSettings:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0
+      ridgidNoiseSettings:
+        strength: 0.16
+        numLayers: 8
+        baseRoughness: 1
+        roughness: 10
+        persistence: 1.21
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 3.16
+        weightMultiplier: 1
+  - enabled: 1
+    useFirstLayerAsMask: 1
+    noiseSettings:
+      filterType: 1
+      simpleNoiseSettings:
+        strength: 1
+        numLayers: 1
+        baseRoughness: 1
+        roughness: 2
+        persistence: 0.5
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 0
+      ridgidNoiseSettings:
+        strength: 0.03
+        numLayers: 8
+        baseRoughness: 9999
+        roughness: 999999
+        persistence: 1.25
+        centre: {x: 0, y: 0, z: 0}
+        minValue: 1
+        weightMultiplier: 1

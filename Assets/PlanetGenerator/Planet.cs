@@ -12,12 +12,17 @@ public class Planet : MonoBehaviour
     public FaceRenderMask faceRenderMask;
 
     public ShapeSettings shapeSettings;
-    public ColourSettings colourSettings;
+    public ColorSettings colourSettings;
+
+    public bool HasSpawned { get; set; }
 
     [HideInInspector]
     public bool shapeSettingsFoldout;
     [HideInInspector]
     public bool colourSettingsFoldout;
+
+    [SerializeField]
+    private float _rotateSpeed;
 
     ShapeGenerator shapeGenerator = new ShapeGenerator();
     ColourGenerator colourGenerator = new ColourGenerator();
@@ -26,6 +31,13 @@ public class Planet : MonoBehaviour
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
 
+    private void Update()
+    {
+        if(!HasSpawned) 
+            return;
+
+        transform.RotateAround(GeneradorSistema.Center, Vector3.up, _rotateSpeed * Time.deltaTime);
+    }
 
     void Initialize()
     {

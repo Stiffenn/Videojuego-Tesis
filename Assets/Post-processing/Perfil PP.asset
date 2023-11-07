@@ -21,13 +21,13 @@ MonoBehaviour:
     m_Value: 50
   scatter:
     m_OverrideState: 1
-    m_Value: 0.472
+    m_Value: 0.342
   clamp:
     m_OverrideState: 1
     m_Value: 7
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.64084506, b: 1, a: 1}
+    m_Value: {r: 0, g: 0.6392157, b: 1, a: 1}
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
 --- !u!114 &-4222059652268055954
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -69,13 +69,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221518ef91623a7438a71fef23660601, type: 3}
   m_Name: WhiteBalance
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   temperature:
     m_OverrideState: 1
     m_Value: 0
   tint:
     m_OverrideState: 1
-    m_Value: 77
+    m_Value: 0
 --- !u!114 &-1711623339042256455
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -119,16 +119,16 @@ MonoBehaviour:
   active: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.15686274, b: 1, a: 1}
+    m_Value: {r: 0, g: 0.0594968, b: 0.4056604, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.412
+    m_Value: 0.406
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.556
+    m_Value: 0.771
   rounded:
     m_OverrideState: 0
     m_Value: 0

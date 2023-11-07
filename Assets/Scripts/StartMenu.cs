@@ -9,44 +9,24 @@ public class StartMenu : MonoBehaviour
 
     private void Awake()
     {
-        Control.CameraMove += OnCameraMove;
-        Control.MovimientoNave += MovimientoNave;
-        Control.ScannerRefresh += OnScanner;
+        Control.MessageReceived += MessageReceived;
     }
+
+    private void MessageReceived(float potenciador, bool warpPressed, bool scannerPressed)
+    {
+        if (potenciador >= 300 || warpPressed || scannerPressed)
+            Next();
+
+    }
+
     private void OnDestroy()
     {
-        Control.CameraMove -= OnCameraMove;
-        Control.MovimientoNave -= MovimientoNave;
-        Control.ScannerRefresh -= OnScanner;
+        Control.MessageReceived -= MessageReceived;
     }
 
     public void Next()
     {
         _tutorial.gameObject.SetActive(true);
         gameObject.SetActive(false);
-    }
-
-    private void OnScanner(bool isPressed)
-    {
-        if (!isPressed)
-            return;
-
-        Next();
-    }
-
-    private void MovimientoNave(float potenciador)
-    {
-        if (potenciador < ShipInput.PotenciadorThreshold)
-            return;
-
-        Next();
-    }
-
-    private void OnCameraMove(float cameraX, float cameraY)
-    {
-        if (cameraX < ShipInput.DriftingThreshold || cameraY < ShipInput.DriftingThreshold)
-            return;
-        
-        Next();
     }
 }

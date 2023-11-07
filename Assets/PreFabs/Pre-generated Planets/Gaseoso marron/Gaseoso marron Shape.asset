@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d48e7d87040ce4f66a07c75b885f4f80, type: 3}
-  m_Name: Gaseoso marron Shape
+  m_Name: Gaseoso Marron Shape
   m_EditorClassIdentifier: 
-  planetRadius: 200
+  <Name>k__BackingField: Aridon-A1
+  planetRadius: 500
   noiseLayers:
   - enabled: 1
     useFirstLayerAsMask: 1
@@ -24,7 +25,7 @@ MonoBehaviour:
         baseRoughness: 0.5
         roughness: 3
         persistence: 0.3
-        centre: {x: 2.18, y: 4.65, z: 2.93}
+        centre: {x: 0, y: 4, z: 0}
         minValue: 1
       ridgidNoiseSettings:
         strength: 0.03
@@ -51,7 +52,7 @@ MonoBehaviour:
         strength: 0.03
         numLayers: 8
         baseRoughness: 3
-        roughness: 9999999
+        roughness: 999999
         persistence: 1
         centre: {x: 0, y: 0, z: 0}
         minValue: 1
@@ -75,5 +76,5 @@ MonoBehaviour:
         roughness: 1e+9
         persistence: 1
         centre: {x: 0, y: 0, z: 0}
-        minValue: 1
+        minValue: 6
         weightMultiplier: 1
