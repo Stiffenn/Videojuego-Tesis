@@ -70,7 +70,7 @@ public class MovementHandler : MonoBehaviour
         float acceleration = IsWarping ? _warpAcceleration : _forwardAcceleration;
         Vector3 moveDir = Vector3.zero;
 
-        if (InputReceiver.WIsPressed || IsWarping)
+        if (InputReceiver.WIsPressed || InputReceiver.WIsForced || IsWarping)
         {
             moveDir = speed * Time.deltaTime * _forwardOrigin.forward;
         } else if (InputReceiver.SIsPressed)

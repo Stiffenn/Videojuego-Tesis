@@ -17,6 +17,7 @@ public class Tutorial : MonoBehaviour
     public Slider Potenciador;
     public Slider Carga;
     public float CargaVelocidad = 1f;
+    public float LerpMultiplier = 10f;
 
     public readonly Dictionary<Tutoriales, bool> TutorialesCompletados = new Dictionary<Tutoriales, bool>();
 
@@ -55,7 +56,7 @@ public class Tutorial : MonoBehaviour
             TutorialesCompletados[Tutoriales.Potenciador] = true;
         }
 
-        Potenciador.value = potenciador;
+        Potenciador.value = Mathf.Lerp(Potenciador.value, potenciador, Time.deltaTime * LerpMultiplier);
     }
 
     void UpdateCarga()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -23,6 +24,39 @@ public class Scanner : MonoBehaviour
     private Transform _camera;
 
     private readonly Dictionary<Transform, float> _progress = new();
+
+    public static int MaxScannables => Instance._progress.Values.Count;
+    public static int ScannedSoFar => Instance._progress.Values.Count(i => i >= 100f);
+
+    private static Scanner Instance;
+
+    public static double GetTotalProgress()
+    {
+        int cur = ScannedSoFar;
+
+        if (cur == 0)
+            return cur;
+
+        return Math.Round((double) cur / MaxScannables * 100);
+    }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        foreach (var item in Scannables)
+        {
+            _progress.Add(item, 0);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Scannables.Clear();
+    }
 
     private void Update()
     {

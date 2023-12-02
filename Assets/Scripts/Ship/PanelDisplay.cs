@@ -13,6 +13,12 @@ public class PanelDisplay : MonoBehaviour
 
         int warpTime = (int)(MovementHandler.WarpTimer - MovementHandler.Stopwatch.Elapsed.TotalSeconds);
 
-        _warpDisplay.text = warpTime <= 0 ? "MODO WARP\nACTIVADO" : $"Warp en {warpTime}...";
+        if (!InputReceiver.WarpIsPressed)
+        {
+            _warpDisplay.text = string.Empty;
+            return;
+        }
+
+        _warpDisplay.text = warpTime <= 0 ? "MOTOR WARP\nACTIVADO" : $"Warp en {warpTime}...";
     }
 }

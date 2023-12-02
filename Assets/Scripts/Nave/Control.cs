@@ -29,6 +29,8 @@ public class Control : MonoBehaviour
             return;
         }
 
+        potenciador = 1023 - potenciador; //Inversión de potenciómetro
+
         bool isWarpPressed = array[indice++] == "0"; //Estado del Swich Joystick
         bool isScannerPressed = array[indice++] == "0"; //Estado del Swich Joystick
 

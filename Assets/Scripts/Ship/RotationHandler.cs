@@ -48,6 +48,15 @@ public class RotationHandler : MonoBehaviour
 
     private void HandleObstacles()
     {
+        if (EndGame.EndSequenceActive)
+        {
+            InputReceiver.WIsForced = false;
+            InputReceiver.IsMovementBlocked = true;
+            InputReceiver.IsWarpBlocked = true;
+            InputReceiver.IsRotationBlocked = true;
+            return;
+        }
+
         bool blockInput = false;
 
         foreach (MovementBlocker obstacle in MovementBlocker.Instances)
@@ -62,7 +71,8 @@ public class RotationHandler : MonoBehaviour
         }
 
         InputReceiver.WIsForced = blockInput;
-        InputReceiver.IsRotationBlocked = blockInput;
+        //InputReceiver.IsRotationBlocked = blockInput;
+        InputReceiver.IsWarpBlocked = blockInput;
         InputReceiver.IsMovementBlocked = blockInput;
     }
 
