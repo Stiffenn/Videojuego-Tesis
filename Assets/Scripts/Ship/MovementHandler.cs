@@ -16,7 +16,7 @@ public class MovementHandler : MonoBehaviour
         }
     }
 
-    public const float WarpTimer = 3f;
+    public const float WarpTimer = 4f;
 
     [SerializeField]
     private float _forwardSpeed;

@@ -92,7 +92,7 @@ public class EndGame : MonoBehaviour
         }
 
         //if (Scanner.ScannedSoFar < Scanner.MaxScannables)
-        if (Scanner.ScannedSoFar < 1)
+        if (Scanner.ScannedSoFar < 4)
             return;
 
         BeginEndSequence();
